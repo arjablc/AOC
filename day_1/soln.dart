@@ -2,7 +2,7 @@ import "dart:io";
 
 void main() async {
   File outFile = File("./out.txt");
-  File inFile = File("./sampleInput.txt");
+  File inFile = File("./input.txt");
   String fileString = await inFile.readAsString();
   List<String> stringList = fileString.trim().split("\n");
 
@@ -10,19 +10,15 @@ void main() async {
   for (String string in stringList) {
     List<String> charList = string.split("");
     for (String char in charList) {
-      //* Crude approach there is a 'is' in dart to check the types.
-      if (char is int) {
-        print(char);
+      try {
+        int temp = int.parse(char);
+        intList.add(temp);
+        temp = 0;
+      } catch (exception) {
+        throw exception;
+      } finally {
+        continue;
       }
-      print("something occured");
-
-      // try {
-      //   int temp = int.parse(char);
-      //   intList.add(temp);
-      //   temp = 0;
-      // } catch (exception) {
-      //   continue;
-      // }
     }
     print(intList);
     intList.length != 1
