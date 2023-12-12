@@ -21,11 +21,13 @@ void main() async {
       }
     }
     print(intList);
+
     intList.length != 1
         ? await outFile.writeAsString("${intList.first}${intList.last}\n",
             mode: FileMode.append)
         : await outFile.writeAsString("${intList.first}${intList.first}\n",
             mode: FileMode.append);
+
     intList = [];
   }
 
