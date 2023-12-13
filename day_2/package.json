@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/solution.ts",
   "type": "module",
+  "module": "esnext",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
